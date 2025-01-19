@@ -14,6 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
             font-family: 'Arial', sans-serif;
@@ -26,17 +27,6 @@
         }
         p {
             font-size: 1.5rem;
-        }
-        .container {
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
         }
         .bubble {
             width: 100px;
@@ -79,6 +69,35 @@
                 opacity: 0;
             }
         }
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background-color: #1a1a1a;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-item {
+            display: flex;
+            align-items: center;
+        }
+        .footer-item input {
+            padding: 5px;
+            margin-left: 5px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .footer-item input::placeholder {
+            color: #bbb;
+        }
+        .footer-item img {
+            width: 24px;
+            height: 24px;
+        }
     </style>
 </head>
 <body>
@@ -91,6 +110,16 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
+    <footer>
+        <div class="footer-item">
+            <img src="https://image.flaticon.com/icons/svg/2111/2111465.svg" alt="LinkedIn Icon">
+            <input type="text" placeholder="https://www.linkedin.com/in/alfred-langerbeck/">
+        </div>
+        <div class="footer-item">
+            <img src="https://image.flaticon.com/icons/svg/2111/2111432.svg" alt="GitHub Icon">
+            <input type="text" placeholder="https://github.com/ALangerbeck">
+        </div>
+    </footer>
 </body>
 </html>
 
