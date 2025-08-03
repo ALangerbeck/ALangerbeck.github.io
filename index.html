@@ -1,125 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Nothing Here Yet</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive PDF Viewer</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
-            font-family: 'Arial', sans-serif;
-            color: white;
-            text-align: center;
-        }
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.5rem;
-        }
-        .bubble {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            position: absolute;
-            animation: rise 6s ease-in-out infinite;
-        }
-        .bubble:nth-child(1) {
-            left: 10%;
-            animation-duration: 5s;
-        }
-        .bubble:nth-child(2) {
-            left: 30%;
-            animation-duration: 7s;
-        }
-        .bubble:nth-child(3) {
-            left: 50%;
-            animation-duration: 6s;
-        }
-        .bubble:nth-child(4) {
-            left: 70%;
-            animation-duration: 8s;
-        }
-        .bubble:nth-child(5) {
-            left: 90%;
-            animation-duration: 4s;
-        }
-        @keyframes rise {
-            0% {
-                bottom: -100px;
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                bottom: 100vh;
-                opacity: 0;
-            }
-        }
-        footer {
-            margin-top: auto;
-            padding: 10px;
-            background-color: #1a1a1a;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .footer-item {
-            display: flex;
-            align-items: center;
-        }
-        .footer-item input {
-            padding: 5px;
-            margin-left: 5px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        .footer-item input::placeholder {
-            color: #bbb;
-        }
-        .footer-item img {
-            width: 24px;
-            height: 24px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .pdf-container {
+        max-width: 100%;
+        height: 80vh;
+        border: 1px solid #ccc;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .fallback-link {
+        margin-top: 20px;
+        font-size: 1rem;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Nothing here yet...</h1>
-        <p>There is nothing here.</p>
+  </head>
+  <body>
+    <h2>View PDF</h2>
+    <div class="pdf-container">
+      <iframe src="invite.pdf"></iframe>
     </div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <footer>
-        <div class="footer-item">
-            <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg" alt="LinkedIn Icon">
-            <input type="text" placeholder="https://www.linkedin.com/in/alfred-langerbeck/">
-        </div>
-        <div class="footer-item">
-            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub Icon">
-            <input type="text" placeholder="https://github.com/ALangerbeck">
-        </div>
-    </footer>
-</body>
+    <p class="fallback-link">
+      If the PDF doesn't display, <a href="yourfile.pdf" target="_blank">click here to download</a>.
+    </p>
+  </body>
 </html>
 
