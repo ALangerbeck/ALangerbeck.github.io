@@ -6,16 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
   <style>
+    .container {
+      display: flex;
+      /* Makes children side by side */
+      align-items: center;
+      /* Vertically center items */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .text {
+      flex: 1;
+      /* Text takes available space */
+      padding-right: 20px;
+      /* Space between text and image */
+    }
+
+    .image {
+      flex: 1;
+      /* Image takes remaining space */
+    }
+
+    .image img {
+      max-width: 100%;
+      /* Make image responsive */
+      border-radius: 10px;
+    }
+
     .top-button {
       background-color: #daa520;
-      color: black;
+      color: #FAECD1;
       border: none;
       padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-family: 'Great Vibes', cursive;
+      border-radius: 10px;
+      font-size: 2rem;
+      font-family: 'DM Serif Display';
+      font-style: italic;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -50,7 +82,7 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 60px;
+      height: 100px;
       background-color: #6b0b18e5;
       color: rgb(223, 166, 11);
       display: flex;
@@ -77,10 +109,11 @@
     }
 
     .nav-links a {
-      color: #ffd700;
+      color: #FAECD1;
       text-decoration: none;
       transition: color 0.3s;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'DM Serif Display';
+      font-style: italic;
     }
 
     .nav-links a:hover {
@@ -89,17 +122,19 @@
 
     /* Push page content below the top bar */
     main {
-      padding-top: 80px;
+      padding-top: 90px;
+      padding-bottom: 1rem;
+      margin: 0 auto;
     }
 
 
     body {
-      background-image: url('background.png');
+      background-color: #4D1A2B;
+      /*background-image: url('background.png');
       background-repeat: repeat-x;
       background-size: contain;
-      background-position: center;
+      background-position: center;*/
       margin: 0;
-      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -109,27 +144,36 @@
     }
 
     h1 {
-      color: #000000;
-      text-shadow: 2px 2px 4px #aaa;
-      font-family: 'Parisienne', cursive;
+      color: #FAECD1;
+      /*text-shadow: 2px 2px 4px #aaa;*/
+      font-family: 'DM Serif Display';
+      font-style: italic;
       font-size: 70px;
       text-align: center;
+
     }
 
     h2 {
       text-align: center;
-      color: #000000;
-      text-shadow: 2px 2px 4px #aaa;
+      color: #FAECD1;
       font-family: 'Courier New', Courier, monospace;
       font-size: 45px;
       text-align: center;
+    }
+
+    p {
+      text-align: center;
+      color: #FAECD1;
+      font-size: 30px;
+      font-family: 'DM Serif Display';
+      font-style: italic;
     }
 
     .divider {
       width: 70%;
       max-width: 1200;
       height: 3px;
-      background-color: #ffd700;
+      background-color: #FAECD1;
       /* accent color */
       margin: 30px auto;
       /* centered */
@@ -145,42 +189,130 @@
   <header class="topbar">
     <div class="logo">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMbTSHoV7RL7crIIEOpeEBRJ2v3DYT1GZikKLWvNVghUsXHg/viewform?usp=dialog"
-        class="top-button">Notifiera mig när mer info finns</a>
+        class="top-button">OSA</a>
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="#Osa">OSA</a></li>
         <li><a href="#Bröllopsdag">Bröllopsdag</a></li>
         <li><a href="#Klädkod">Klädkod</a></li>
         <li><a href="#Reseinfo">Reseinfo</a></li>
         <li><a href="#Uppskattning & Gåvor">Uppskattning</a></li>
+        <li><a href="#Uppskattning & Gåvor">English</a></li>
       </ul>
     </nav>
     </div>
 
   </header>
-  <div></div>
-  <h1>Alfred & Linas <br> Bröllop på Örtofta slott</h1>
-  <h2>9:e Maj 2026</h2>
-  <p style=" text-align: center; font-family: 'Courier New', Courier, monospace;">
-    Vigsel: Burlövs Gamla Kyrka, Kl. 15:00 <br>
-    Fest: Örtofta Slott, Kl. 17:00
-  </p>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMbTSHoV7RL7crIIEOpeEBRJ2v3DYT1GZikKLWvNVghUsXHg/viewform?usp=dialog"
-    class="fancy-button">Osa!</a>
-  </div>
+  <main>
+    <h1>Välkomna till <br> Lina och Alfreds <br> Bröllop på Örtofta slott <br> 9:e maj 2026 </h1>
 
-  <div class="divider"></div>
+    <div class="container">
+      <div class="text">
+        <p>Vi träffades i börja av studierna och bondade direkt över ett gemensamt intresse i böcker, brädspel och
+          diverse annat nörderi. Valborg 2019 blev vi officiellt tillsammans och nu cirka 7 år senare är ni alla bjudna
+          till nästa stora steg i våran resa!</p>
+      </div>
+      <div class="image">
+        <img src="turkey-hills.jpg" alt="Example Image">
+      </div>
+    </div>
 
-  <div>
-    <h2 id="Osa">OSA</h2>
-    <p>Vänligen osa senast 1:a Mars 2026 via vår Google Formulär genom att klicka på knappen ovan.</p>
-  </div>
+    <div>
+      <p>Bröllopsdagen kommer utspela sig på Örtofta slott. Dagen kommer att börja med en kyrklig vigsel på Örtofta
+        kyrka. Därefter kommer vi röra oss till slottet för mingel och brudskål, och det kommer bjudas på bakelse. Efter
+        mingel kommer vi röra oss till middagslokalen där en tre rätters middag kommer serveras. Under middagen
+        välkomnar vi tal och annan underhållning från er, mer info om hur man anmäler sig till det finns längre ner.
+        Efter middagen kommer dansgolvet och baren att öppnas. Vi hoppas att ni alla kan komma för att fira våran dag
+        med oss. </p>
+      <p>Vi önskar att ni osar senast den sista januari via formuläret som finns länkat nedanför, men om ni redan vet
+        får ni gärna osa tidigare.</p>
+      <div style="display: flex; justify-content: center; margin-top: 30px; gap: 10px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMbTSHoV7RL7crIIEOpeEBRJ2v3DYT1GZikKLWvNVghUsXHg/viewform?usp=dialog"
+          class="top-button">OSA</a>
+      </div>
+    </div>
 
+    <div class="divider"></div>
 
+    <div>
+      <h1 id="Osa">Bröllopsdagen</h1>
+      <div class="container">
+        <div class="text">
+          <p>
 
+            Hela bröllopsdagen kommer ske på Örtofta slott och kyrka som ligger några hundra från varandra.<br>
+            Vigsel börjar vid 14:00 på Örtofta Kyrka, Var gärna på plats i god tid då vigseln startar då<br>
+            Cirka 15:30 kommer brudskål ske på slottet och därefter sker all aktivitet på slottet<br>
+            Om ni vill hålla tal eller annars uppträda på middagen så ber vi er att kontakta våra toastmasters. Deras
+            kontaktuppgifter finns publicerade längst ned.<br>
+            Om ni bara kan vara med på delar av dagen kontakta oss så kan vi komma med noggrannare hålltider<br>
+          </p>
+        </div>
+        <div class="image">
+          <img src="ortofta.jpg" alt="Example Image">
+        </div>
+      </div>
+    </div>
 
+    <div class="divider"></div>
 
+    <div style="text-align: center;">
+      <h1>Klädsel</h1>
+      <p>Klädkoden för bröllopet är “Mörk Kostym”<br>
+        En bra definition av dess kan återfinnas <a href="https://alissa.se/kl%c3%a4dkod-m%c3%b6rk-kostym/">här</a>, då
+        det är ett vårbröllop så uppmuntrar vi alla till färgglada
+        kläder, även herrarna, trots att detta formellt sätt inte ryms inom klädkoden.</p>
+      <img src="preshoot1.jpg" alt="Example Image" style="max-width: 50rem; height: auto;">
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align: center;">
+      <h1>Reseinfo</h1>
+      <p>Till Örtofta slott tar man sig lättast med Bil eller Pågatåg <br>
+
+        Om man kommer med bil så finns det parkering både vid slottet och vid kyrkan<br>
+
+        Om man kommer med tåg stiger man av på Örtofta station och går en kort scenisk vandring genom “Lyktornas
+        Park”<br>
+
+        För de som reser långt finns det ett antal rum på slottet som går att boka för gäster, de kostar
+        1200(enkelrum)-1450(dubbelrum) per natt. Det går att boka nätterna fredag- lördag, lördag-söndag eller båda.
+        Incheckning på lördag är vid 13:oo, om man önskar tidig incheckning kostar det 300 och man får då checka in vid
+        9:00, om man anländer på fredagen är incheckningen från 15:00. Frukost är också inkluderat. Om ni vill boka ett
+        sådant så kan ni kontakta oss.<br></p>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6309.17890344928!2d13.247632074596881!3d55.78175261780984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sse!4v1767390294369!5m2!1sen!2sse"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align: center;">
+      <h1>Uppskattning</h1>
+      <p>Den största gåva vi kan få är såklart er närvaro på vår stora dag, men om man vill ge något utöver det så
+        önskar vi oss antingen någon från vår presentlistan eller ett bidrag till bröllopsresan
+
+        Presentlistan organiseras i följande Facebook grupp, om man inte använder Facebook kan ni kontakta brudens mor
+        här</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <h1>Kontakt</h1>
+      <p>Kontakt
+
+        Alfreds Mejl: A.Langerbeck@pm.me<br>
+
+        Linas Mejl: lina.tinnerberg@gmail.com<br>
+
+        Toastmaster Mejl: toastmaster_LA_wedding@proton.me<br></p>
+    </div>
+
+  </main>
 </body>
 
 </html>
