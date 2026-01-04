@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* Gör att padding och border räknas in i bredden */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --topbar-height: 100px;
+      /* default */
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      /* Makes children side by side */
+      align-items: center;
+      /* Vertically center items */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .text {
+      flex: 1;
+      /* Text takes available space */
+      padding-right: 20px;
+      /* Space between text and image */
+    }
+
+    .image {
+      flex: 1;
+      /* Image takes remaining space */
+    }
+
+    .image img {
+      max-width: 100%;
+      /* Make image responsive */
+      border-radius: 10px;
+    }
+
+    .top-button {
+      background-color: #daa520;
+      color: #FAECD1;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 2rem;
+      font-family: 'DM Serif Display';
+      font-style: italic;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .top-button:hover {
+      background-color: #0097a7;
+    }
+
+    .fancy-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background-color: #ff6363;
+      color: white;
+      font-size: 18px;
+      font-family: sans-serif;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .fancy-button:hover {
+      background-color: #574fd6;
+      transform: scale(1.05);
+    }
+
+    /* Top bar styling */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--topbar-height);
+      background-color: #6b0b18e5;
+      color: rgb(223, 166, 11);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    /* Logo or title */
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #FAECD1;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-family: 'DM Serif Display';
+      font-style: italic;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* Push page content below the top bar */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: var(--topbar-height);
+      /* padding kvar, men lite extra horisontellt utrymme */
+    }
+
+
+    body {
+      background-color: #4D1A2B;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* Horizontal center */
+      align-items: center;
+      /* Vertical center */
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      /* hindrar horisontell scroll */
+    }
+
+    h1 {
+      color: #FAECD1;
+      /*text-shadow: 2px 2px 4px #aaa;*/
+      font-family: 'DM Serif Display';
+      font-style: italic;
+      font-size: (2.3rem, 6vw, 4.5rem);
+      text-align: center;
+
+    }
+
+    h2 {
+      text-align: center;
+      color: #FAECD1;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      color: #FAECD1;
+      font-size: clamp(1.1rem, 2.8vw, 1.8rem);
+      font-family: 'DM Serif Display';
+      font-style: italic;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .divider {
+      width: 70%;
+      max-width: 1200;
+      height: 3px;
+      background-color: #FAECD1;
+      /* accent color */
+      margin: 30px auto;
+      /* centered */
+      border-radius: 2px;
+      /* rounded edges */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      width: 100%;
+      /* tar upp max tillgänglig bredd */
+      max-width: 100%;
+      /* går aldrig utanför container */
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #daa520;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --topbar-height: 250px;
+        /* högre på mobil */
+      }
+
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .text {
+        padding-right: 0;
+      }
+
+      .topbar {
+        height: auto;
+        flex-direction: column;
+        padding: 12px 0;
+        gap: 8px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 1.1rem;
+        display: inline-block;
+        /* gör att padding påverkar klickytan */
+      }
+
+      .nav-links li {
+        margin: 5px 0;
+      }
+
+      iframe {
+        width: 100% !important;
+        height: 300px;
+      }
+
+
+      section,
+      .container,
+      .divider {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* Minska huvudrubrikens marginal */
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+      }
+
+      /* Gör textblock tätare men fortfarande luftiga */
+      p {
+        line-height: 1.4;
+        margin-bottom: 15px;
+      }
+
+      /* Anpassa bilder i sektioner med text */
+      .container .image img {
+        margin-top: 15px;
+      }
+
+      /* Småjustering av main */
+      main {
+        padding-top: var(--topbar-height);
+        /* lite mindre för mobilen */
+        padding-bottom: 40px;
+      }
+
+      a.top-button,
+      .fancy-button {
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqKLAXh-eA2Qbq8F5mMBOyKL-K9nyQHdiAbuSL7RqPSurz5w/viewform"
+        class="top-button">RSVP</a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#Brollopsdag">Wedding day</a></li>
+        <li><a href="#Kladsel">Dress Code</a></li>
+        <li><a href="#Reseinfo">Travel info</a></li>
+        <li><a href="#Uppskattning">Gifts</a></li>
+        <li><a href="index.html">Svenska</a></li>
+      </ul>
+    </nav>
+    </div>
+
+  </header>
+  <main>
+    <h1>Welcome to <br> Lina och Alfred's <br> Wedding at Örtofta castle <br> 9th of may 2026 </h1>
+
+    <div class="container">
+      <div class="text">
+        <p>
+          We met in the initial year of our university studies and instantly bonded over a joint interest in books,
+          board games and a variety of nerdy things.
+          During <a href="https://en.wikipedia.org/wiki/Walpurgis_Night">Valborg</a> 2019 we
+          became an official couple
+          and now approximately 7 years later
+          we invite you to the next step in our big journey! </p>
+      </div>
+      <div class="image">
+        <img src="images/turkey-hills.jpg" alt="Example Image">
+      </div>
+    </div>
+
+    <div>
+      <p>
+        The Weddingday will take place at Örtofta Slott. The day will begin with the wedding ceremony at Örtofta church.
+        After that we will move to Örtofta Slott for the wedding reception.
+        The reception will start with some mingle, and a toast for the bride and groom, and pastries will be served.
+        Later in the day we will move to the dining area for a three-course meal.
+        During the dinner we encourage speeches or other performances from you all. If this is something you wish to do
+        there are more information on how to contact the toastmasters further down.
+        After the dinner the dance floor and the bar will be opened. We hope that you can all come and celebrate our big
+        day with us.
+      </p>
+      <p> We ask you to please RSVP no later than the last January using the link below. If you already know if you can
+        come or not we would appreciate if you RSVPd earlier.
+      </p>
+      <div style="display: flex; justify-content: center; margin-top: 30px; gap: 10px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqKLAXh-eA2Qbq8F5mMBOyKL-K9nyQHdiAbuSL7RqPSurz5w/viewform"
+          class="top-button">RSVP</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <h1 id="Brollopsdag">The Wedding day</h1>
+      <div class="container">
+        <div class="text">
+          <p id="Brollopsdag">
+
+            The full Wedding Day will take place at Örfota slott and Örtofta church, with a few hundred meters between
+            them.<br>
+            The Wedding Ceremony will start at 14:00 at Örtofta church. Please arrive before that so you have time to
+            enter and take a seat before the start of the Ceremony.<br>
+            At around 15:30 the toast to the bride and groom will be held, and after that all activities will be held at
+            Örtofta Slott.<br>
+            If you want to give a speech or have any other type of performance during the dinner please contact our
+            toastmasters. There contact details are published furthest down on the website.<br>
+            If you can only attend parts of the day please contact us to receive a more detailed schedule.<br>
+          </p>
+        </div>
+        <div class="image">
+          <img src="images/ortofta.jpg" alt="Example Image">
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align: center;">
+      <h1 id="Kladsel">Dress code</h1>
+      <p>The dress code for the wedding is "Formal"<br>
+        A good definition of Formal can be found <a style="color: #daa520;"
+          href="https://alissa.se/kl%c3%a4dkod-m%c3%b6rk-kostym/">here</a>. As this is a spring wedding we encourage
+        everyone to wear bright colors,
+        even the men, regardless of the fact that that is generally not allowed within the dress code. </p>
+      <img src="images/preshoot1.jpg" alt="Example Image"
+        style="max-width: 50rem; height: auto; display: block; margin: 0 auto;">
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align: center;">
+      <h1 id="Reseinfo">Travel Information</h1>
+      <p>It is easiest to travel to Örtofta Slott using either a car or the train. <br>
+
+        For the people traveling by car there are parking areas both at the venue and at the church.<br>
+
+        For the people traveling by train exit the train at Örtofta station and then you can walk a short distance to
+        the venue through “Lyktornas
+        Park”<br>
+
+        For the people who are traveling from afar there are a couple of rooms at the venue available. They cost
+        1200(single room)-1450(double room) per night.
+        They are available for the following nights: Friday-Saturday, Saturday-Sunday or both nights. Check in time on
+        Saturday is at 13:00, and if you desire an early
+        Check in that costs 300 and then you can Check in at 9:00. If you arrive on Friday the check in time is at
+        15:00. Breakfast is also included. If you wish to reserve a room please contact us directly.
+        <br>
+      </p>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6309.17890344928!2d13.247632074596881!3d55.78175261780984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sse!4v1767390294369!5m2!1sen!2sse"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="text-align: center;">
+      <h1 id="Uppskattning">Gifts</h1>
+      <p>The biggest gift we can receive is of course your presence, but if you wish to give us a gift in addition to
+        that we wish for something either from our wishlist
+        or a contribution to our honeymoon.
+
+        The wishlist is organized in the following <a href="https://www.facebook.com/groups/2221518208372029/">Facebook
+          group</a>. If you don't use Facebook please contact the brides mother at: aktinnerberg@gmail.com</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <h1>Contact Information</h1>
+      <p>
+
+        Lina's Mail: lina.tinnerberg@gmail.com<br>
+        Alfred's Mail: A.Langerbeck@pm.me<br>
+        Toastmaster's Mail: toastmaster_LA_wedding@proton.me<br>
+        Gifts: aktinnerberg@gmail.com<br></p>
+    </div>
+
+  </main>
+</body>
+
+</html>
